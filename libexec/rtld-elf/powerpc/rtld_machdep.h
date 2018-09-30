@@ -69,7 +69,7 @@ void _rtld_powerpc_pltcall(void);
 
 #define TLS_TP_OFFSET	0x7000
 #define TLS_DTV_OFFSET	0x8000
-#define TLS_TCB_SIZE	8
+#define TLS_TCB_SIZE	16
 
 #define round(size, align) \
     (((size) + (align) - 1) & ~((align) - 1))
@@ -78,6 +78,7 @@ void _rtld_powerpc_pltcall(void);
 #define calculate_tls_offset(prev_offset, prev_size, size, align) \
     round(prev_offset + prev_size, align)
 #define calculate_tls_end(off, size)    ((off) + (size))
+#define calculate_tls_post_size(align)  0
  
 typedef struct {
 	unsigned long ti_module;
